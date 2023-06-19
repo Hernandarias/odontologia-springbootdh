@@ -15,7 +15,7 @@ import java.util.Optional;
 
 @Service
 public class TurnoService {
-    Logger logger = LogManager.getLogger(DomicilioService.class);
+    Logger logger = LogManager.getLogger(TurnoService.class);
     @Autowired
     private TurnoRepository repository;
 

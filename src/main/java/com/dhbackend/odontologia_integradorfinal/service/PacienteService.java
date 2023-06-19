@@ -19,7 +19,7 @@ import java.util.Optional;
 
 @Service
 public class PacienteService {
-    Logger logger = LogManager.getLogger(DomicilioService.class);
+    Logger logger = LogManager.getLogger(PacienteService.class);
     @Autowired
     private PacienteRepository repository;
 

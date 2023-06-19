@@ -17,7 +17,7 @@ import java.util.Optional;
 
 @Service
 public class OdontologoService {
-    Logger logger = LogManager.getLogger(DomicilioService.class);
+    Logger logger = LogManager.getLogger(OdontologoService.class);
     @Autowired
     private OdontologoRepository repository;
 
