@@ -1,5 +1,6 @@
 package com.dhbackend.odontologia_integradorfinal.service;
 
+import com.dhbackend.odontologia_integradorfinal.controller.exception.ResourceNotFoundException;
 import com.dhbackend.odontologia_integradorfinal.mapper.TurnoMapper;
 import com.dhbackend.odontologia_integradorfinal.model.TurnoDto;
 import com.dhbackend.odontologia_integradorfinal.persistence.entities.Turno;
@@ -76,12 +77,15 @@ public class TurnoService {
     @Transactional
     public void deleteTurno(int id) {
         try {
-
-
+            if(!repository.existsById(id)){
+                logger.error("No se pudo eliminar el turno con id: " + id + " , error: el turno no se encuentra registrado en el sistema");
+                throw new ResourceNotFoundException("El turno no se encuentra registrado en el sistema", id);
+            }
             repository.deleteById(id);
             logger.info("Se elimino el turno con id: " + id);
         } catch (Exception e) {
             logger.error("No se pudo eliminar el turno con id: " + id + " , error: " + e.getMessage());
+
         }
     }
 

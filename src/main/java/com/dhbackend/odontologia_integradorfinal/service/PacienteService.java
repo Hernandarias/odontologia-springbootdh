@@ -1,5 +1,6 @@
 package com.dhbackend.odontologia_integradorfinal.service;
 
+import com.dhbackend.odontologia_integradorfinal.controller.exception.ResourceNotFoundException;
 import com.dhbackend.odontologia_integradorfinal.mapper.OdontologoMapper;
 import com.dhbackend.odontologia_integradorfinal.mapper.PacienteMapper;
 import com.dhbackend.odontologia_integradorfinal.model.OdontologoDto;
@@ -82,6 +83,10 @@ public class PacienteService {
     public void deletePaciente(int id) {
 
         try {
+            if (!repository.existsById(id)){
+                logger.error("No existe paciente con id: " + id);
+                throw new ResourceNotFoundException("No existe paciente con id: " + id);
+            }
             repository.deleteById(id);
             logger.info("Paciente eliminado por id: " + id);
         }catch (Exception e){

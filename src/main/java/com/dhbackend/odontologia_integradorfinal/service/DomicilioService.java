@@ -1,5 +1,6 @@
 package com.dhbackend.odontologia_integradorfinal.service;
 
+import com.dhbackend.odontologia_integradorfinal.controller.exception.ResourceNotFoundException;
 import com.dhbackend.odontologia_integradorfinal.mapper.DomicilioMapper;
 import com.dhbackend.odontologia_integradorfinal.mapper.OdontologoMapper;
 import com.dhbackend.odontologia_integradorfinal.model.DomicilioDto;
@@ -81,6 +82,10 @@ public class DomicilioService {
     @Transactional
     public void deleteDomicilio(int id) {
         try{
+            if (!repository.existsById(id)) {
+                logger.error("Domicilio no encontrado con id: " + id);
+                throw new ResourceNotFoundException("Domicilio no encontrado con id: " + id);
+            }
             repository.deleteById(id);
             logger.info("Domicilio eliminado con id: " + id);
         }
