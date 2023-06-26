@@ -76,6 +76,7 @@ class OdontologoServiceTest {
     void testDeleteOdontologo() {
         int id = 1;
         Odontologo o = new Odontologo(id, "1", "1", "1");
+        when(repository.existsById(id)).thenReturn(true);
         when(repository.findById(id)).thenReturn(Optional.of(o));
 
         service.deleteOdontologo(id);

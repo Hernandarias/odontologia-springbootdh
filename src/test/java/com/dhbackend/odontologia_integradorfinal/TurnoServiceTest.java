@@ -97,6 +97,7 @@ public class TurnoServiceTest {
         int id = 1;
         Paciente p= new Paciente(1, "1", "1", "1", domicilio,LocalDateTime.of(2017, 2, 13, 15, 56));
         Turno t=new Turno(1,p,o,a);
+        when(repository.existsById(id)).thenReturn(true);
         when(repository.findById(id)).thenReturn(Optional.of(t));
 
         service.deleteTurno(id);

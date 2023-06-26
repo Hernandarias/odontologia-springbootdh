@@ -80,6 +80,7 @@ public class PacienteServiceTest {
 
         int id = 1;
         Paciente o = new Paciente(1, "1", "1", "1", domicilio,LocalDateTime.of(2017, 2, 13, 15, 56));
+        when(repository.existsById(id)).thenReturn(true);
         when(repository.findById(id)).thenReturn(Optional.of(o));
 
         service.deletePaciente(id);

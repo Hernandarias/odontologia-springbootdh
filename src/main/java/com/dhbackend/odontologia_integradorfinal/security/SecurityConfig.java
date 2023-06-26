@@ -18,17 +18,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-//        http
-//                .httpBasic()
-//                .and()
-//                .authorizeRequests()
-//                .antMatchers(HttpMethod.POST, "localhost:8070/user/registersimpleuser").permitAll();
-//        http
-//                .httpBasic()
-//                .and()
-//                .authorizeRequests()
-//                .antMatchers(HttpMethod.POST, "localhost:8070/authenticate").permitAll()
-//                .antMatchers(HttpMethod.GET, "localhost:8070/user/listallusers").hasAuthority("ADMIN");
         http.csrf().disable();
     }
 }
