@@ -28,6 +28,7 @@ public class PacienteController {
         return ResponseEntity.ok(dto);
     }
 
+
     @PostMapping("/create")
     public ResponseEntity<PacienteDto> createPaciente(@RequestBody PacienteDto dto) {
         return ResponseEntity.ok(service.createPaciente(dto));

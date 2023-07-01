@@ -2,6 +2,7 @@ package com.dhbackend.odontologia_integradorfinal.model;
 
 import com.dhbackend.odontologia_integradorfinal.persistence.entities.Odontologo;
 import com.dhbackend.odontologia_integradorfinal.persistence.entities.Paciente;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -11,7 +12,9 @@ public class TurnoDto {
 
     private int id_turno;
 
+
     Paciente paciente;
+
 
     Odontologo odontologo;
 
